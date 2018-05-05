@@ -2,6 +2,7 @@ var video;
 
 function afterLoad() {
 	console.log("running after load");
+	// querySelector to get element from HTML video element
 	document.addEventListener('DOMContentLoaded',function() {
 		var v = document.getElementById('videoElement');
 		var c = document.getElementById('c');
@@ -16,17 +17,21 @@ function afterLoad() {
 
 	video = document.querySelector("#videoElement");
 
+	// uses getUserMedia API to see what vendor it is (browser)
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
+	// Checks to see if we are getting something from the webcam, the getUserMedia function the browser prompts user for permission of webcam
 	if (navigator.getUserMedia) {       
 		navigator.getUserMedia({video: true}, handleVideo, videoError);
 	}
 }
 
+// Actually handles the display of the video stream from the webcam
 function handleVideo(stream) {
 		video.src = window.URL.createObjectURL(stream);
 }
 
+// error checking to throw exceptions
 function videoError(e) {
 		// do something
 } 
