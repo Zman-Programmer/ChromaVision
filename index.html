@@ -8,15 +8,36 @@
 <title>Display Webcam Stream</title>
   
 <style>
+#canvas {
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+	height:100%;
+}
 #container {
     margin: 0px auto;
-    width: 500px;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    botom:0;
+    left:0;
+    right:0;
+    /*width: 500px;
     height: 375px;
-    border: 10px #333 solid;
+    border: 10px #333 solid;*/
 }
 #videoElement {
-    width: 500px;
-    height: 375px;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+    width: 100%;
+    height: 100%;
     background-color: #666;
 }
 </style>
@@ -24,11 +45,23 @@
   
 <body>
 <div id="container">
+	<canvas id="c"></canvas>
     <video autoplay="true" id="videoElement">
      
     </video>
 </div>
 <script>
+	document.addEventListener('DOMContentLoaded',function() {
+		var v = document.getElementById('videoElement');
+		var c = document.getElementById('c');
+		var context = c.getContext('2d');
+		var cw = Math.floor(c.clientWidth / 100);
+		var ch = Math.floor(c.clientHeight / 100);
+		c.height = cw;
+		c.width = ch;
+
+		draw(v,context,cw,ch);
+	});
 	var video = document.querySelector("#videoElement");
  
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -43,7 +76,16 @@
  
 	function videoError(e) {
     		// do something
-} 
+	} 
+
+	function draw(v,c,w,h) {
+		console.log("drawing image on canvas");
+		c.drawImage(v,0,0,w,h);
+
+		//data = context.getImageData(w/2,h/2,1,1);
+
+		setTimeout(draw,20,v,c,w,h);
+	}
 </script>
 </body>
 </html>
