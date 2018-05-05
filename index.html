@@ -12,11 +12,12 @@
   
 <body onload="afterLoad()">
 <div id="container">
-    <video autoplay="true" id="videoElement">
-     
-    </video>
-	<canvas id="c"></canvas>
-    <div id="color_indicator">COLOR GOES HERE</div>
+    <video autoplay="true" id="videoElement"></video>
+    <canvas id="c"></canvas>
+    <div id="color_indicator"><font size="20">COLOR GOES HERE</font></div>
 </div>
+<?php
+	shell_exec('./detect_color.py');
+?>
 </body>
 </html>

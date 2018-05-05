@@ -35,7 +35,6 @@ function videoError(e) {
 } 
 
 function draw(v,c,w,h) {
-	//console.log("drawing image on canvas");
 	c.drawImage(v,0,0,w,h);
 
 	data = c.getImageData(100,100,w/2,h/2);
