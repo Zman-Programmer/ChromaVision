@@ -30,3 +30,11 @@
     height: 100%;
     background-color: #666;
 }
+#color_indicator{
+	position:absolute;
+	float:left;
+	width:8%;
+	height:8%;
+	background-color:white;
+	z-index:300000;
+}
