@@ -8,10 +8,12 @@ function afterLoad() {
 	var context = c.getContext('2d');
 	var cw = Math.floor(c.clientWidth);
 	var ch = Math.floor(c.clientHeight);
-	c.height = cw;
-	c.width = ch;
+	/*c.height = cw;
+	c.width = ch;*/
 
 	draw(v,context,cw,ch);
+	/*c.height = 100%;
+	c.width = 100%;*/
 
 	video = document.querySelector("#videoElement");
 
@@ -37,11 +39,11 @@ function videoError(e) {
 function draw(v,c,w,h) {
 	c.drawImage(v,0,0,w,h);
 
-	data = c.getImageData(100,100,w/2,h/2);
+	data = c.getImageData(50,50,1,1);
 	document.getElementById("color_indicator").innerHTML = ntc.name(rgbToHex(data.data[0],data.data[1],data.data[2]))[1];
-	document.getElementById("color_indicator").style.backgroundColor = "RGB("+data.data[0]+","+data.data[1]+","+data.data[2]+")";
+	document.getElementById("color_swatch").style.backgroundColor = "RGB("+data.data[0]+","+data.data[1]+","+data.data[2]+")";
 
-	setTimeout(draw,20,v,c,w,h);
+	setTimeout(draw,1000,v,c,w,h);
 }
 
 // to get hex from rgb

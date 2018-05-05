@@ -11,13 +11,9 @@
 </head>
   
 <body onload="afterLoad()">
-<div id="container">
+    <canvas id="c" height="100" width="100"></canvas>
     <video autoplay="true" id="videoElement"></video>
-    <canvas id="c"></canvas>
+    <div id="color_swatch"></div>
     <div id="color_indicator"><font size="20">COLOR GOES HERE</font></div>
-</div>
-<?php
-	shell_exec('./detect_color.py');
-?>
 </body>
 </html>
