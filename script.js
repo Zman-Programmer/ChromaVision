@@ -8,12 +8,10 @@ function afterLoad() {
 	var context = c.getContext('2d');
 	var cw = Math.floor(c.clientWidth);
 	var ch = Math.floor(c.clientHeight);
-	/*c.height = cw;
-	c.width = ch;*/
+	c.height = ch;
+	c.width = cw;
 
 	draw(v,context,cw,ch);
-	/*c.height = 100%;
-	c.width = 100%;*/
 
 	video = document.querySelector("#videoElement");
 
@@ -22,7 +20,7 @@ function afterLoad() {
 
 	// Checks to see if we are getting something from the webcam, the getUserMedia function the browser prompts user for permission of webcam
 	if (navigator.getUserMedia) {       
-		navigator.getUserMedia({video: true}, handleVideo, videoError);
+		navigator.getUserMedia({video: {facingMode: "environment"}}, handleVideo, videoError);
 	}
 }
 
@@ -39,7 +37,7 @@ function videoError(e) {
 function draw(v,c,w,h) {
 	c.drawImage(v,0,0,w,h);
 
-	data = c.getImageData(50,50,1,1);
+	data = c.getImageData(w/2,h/2,1,1);
 	document.getElementById("color_indicator").innerHTML = ntc.name(rgbToHex(data.data[0],data.data[1],data.data[2]))[1];
 	document.getElementById("color_swatch").style.backgroundColor = "RGB("+data.data[0]+","+data.data[1]+","+data.data[2]+")";
 
