@@ -20,19 +20,19 @@
     position:absolute;
     float:left;
     padding:5px;
-    margin-left:25vh;
-    width:60vh;
-    height:20vh;
+    margin-left:15vh;
+    width:30vh;
+    height:10vh;
     background-color:white;
     z-index:3;
     font-family:Helvetica;
-    font-size:40pt;
+    font-size:30pt;
 }
 #color_swatch {
     position:absolute;
     float:right;
-    width:20vh;
-    height:20vh;
+    width:10vh;
+    height:10vh;
     background-color:white;
     z-index:500;
 }
