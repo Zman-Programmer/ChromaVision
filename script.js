@@ -45,7 +45,7 @@ function draw(v,c,w,h) {
 	document.getElementById("color_indicator").innerHTML =  colorName(hsv.h,hsv.s,hsv.v);
 	document.getElementById("color_swatch").style.backgroundColor = "RGB("+data.data[0]+","+data.data[1]+","+data.data[2]+")";
 
-	setTimeout(draw,1000,v,c,w,h);
+	setTimeout(draw,20,v,c,w,h);
 }
 
 function colorName(h,s,v) {
