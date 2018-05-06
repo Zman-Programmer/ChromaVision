@@ -36,3 +36,12 @@
     background-color:white;
     z-index:500;
 }
+#crosshair {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:10vh;
+    height:10vh;
+    margin-top:-5vh;
+    margin-left:-5vh;
+}
